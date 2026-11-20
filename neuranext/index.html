@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HackNexus’27 | National Level 24-Hour Hackathon | KPRIET</title>
+  <meta name="description" content="HackNexus’27 - National Level 24-Hour Hackathon presented by KPR Institute of Engineering and Technology, Department of AI & Data Science, in association with ACM Student Chapter. Coimbatore. 5 & 6 February 2027." />
+  <meta name="keywords" content="HackNexus27, KPRIET, Hackathon, NationalLevelHackathon, AIandDS, ACMStudentChapter, Coimbatore, Innovation, 24HourHackathon, AI, ML, Cybersecurity, Industry4.0, MedTech, Robotics, OpenInnovation" />
+  <link rel="icon" type="image/png" href="PICS/favicon.png?v=2">
+
+  <!-- Google Fonts: Space Grotesk, JetBrains Mono, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* CSS Variables & Theme (Professional Modern Tech Hackathon Theme) */
+    :root {
+      --bg: #07090e;
+      --bg-surface: #0c101b;
+      --card-bg: rgba(14, 20, 34, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: #00d2ff;
+      --accent: #00d2ff;
+      --accent-glow: rgba(0, 210, 255, 0.35);
+      --accent-secondary: #6366f1;
+      --accent-tertiary: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Selection & Scrollbar */
+    ::selection {
+      background: var(--accent);
+      color: #07090e;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 210, 255, 0.25);
+      border-radius: var(--radius-full);
+      border: 2px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Layout & Utilities */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .eyebrow-line {
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .section-title span.outline {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+      text-stroke: 1.5px var(--accent);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      line-height: 1.7;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Background Grids & Orbs */
+    .bg-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at center, black, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at center, black, transparent 85%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    .glow-1 {
+      top: 10%;
+      left: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.25) 0%, transparent 70%);
+    }
+
+    .glow-2 {
+      top: 50%;
+      right: 10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, transparent 70%);
+    }
+
+    /* Header Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+    }
+
+    header.scrolled {
+      padding: 0.85rem 2rem;
+      background: rgba(7, 9, 14, 0.85);
+      border-bottom-color: rgba(0, 210, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    nav {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding-right: 1.25rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-logo-img {
+      object-fit: contain;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+    }
+
+    .nav-logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-kpriet {
+      height: 48px;
+      width: auto;
+    }
+
+    .logo-acm {
+      height: 44px;
+      width: auto;
+      border-radius: 6px;
+    }
+
+    .nav-brand-text {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-brand-text .accent {
+      color: var(--accent);
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-family: var(--font-mono);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn-register {
+      background: linear-gradient(135deg, #00d2ff 0%, #6366f1 100%);
+      color: #07090e;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0, 210, 255, 0.5);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .btn-register:hover {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 210, 255, 0.5);
+      color: #000;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 75px;
+      left: 0;
+      width: 100%;
+      background: rgba(7, 9, 14, 0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+      padding: 2rem;
+      flex-direction: column;
+      gap: 1.25rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-organizer-tag {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #93c5fd;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title .stroke {
+      color: transparent;
+      -webkit-text-stroke: 2px #00d2ff;
+      text-stroke: 2px #00d2ff;
+      display: inline-block;
+      position: relative;
+    }
+
+    .hero-motto-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.45rem 1.1rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #c7d2fe;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-sub strong {
+      color: #ffffff;
+    }
+
+    /* Key Meta Badges Pill Box */
+    .hero-badges-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-main);
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+
+    .meta-badge:hover {
+      border-color: var(--accent);
+      background: rgba(0, 210, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .meta-badge.highlight {
+      border-color: rgba(0, 210, 255, 0.5);
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Right: Live Countdown Timer */
+    .timer-card {
+      background: rgba(13, 18, 32, 0.85);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #00d2ff, #6366f1, #a855f7);
+    }
+
+    .timer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timer-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+      text-align: center;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .time-box:hover {
+      border-color: rgba(0, 210, 255, 0.4);
+      background: rgba(0, 210, 255, 0.05);
+      transform: translateY(-3px);
+    }
+
+    .time-val {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .time-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .timer-perks-box {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    .timer-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timer-perk-item span {
+      color: #ffffff;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 8px); }
+    }
+
+    /* Marquee Ticker Band */
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(12, 16, 27, 0.9);
+      border-top: 1px solid rgba(0, 210, 255, 0.2);
+      border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+      padding: 0.9rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: fit-content;
+      animation: marquee 25s linear infinite;
+    }
+
+    .marquee-item {
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .marquee-item .highlight {
+      color: var(--accent);
+    }
+
+    .marquee-item .highlight-purple {
+      color: #c084fc;
+    }
+
+    .marquee-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Overview Section */
+    .overview-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .overview-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ffffff 30%, #00d2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-desc {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Value Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .pillar-card {
+      background: rgba(14, 20, 34, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: rgba(99, 102, 241, 0.5);
+      background: rgba(18, 25, 42, 0.8);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Challenge Tracks Grid */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .track-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 15px 35px rgba(0, 210, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .track-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .track-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .track-icon-ph {
+      font-size: 2.2rem;
+    }
+
+    .track-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .track-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-track-details {
+      background: transparent;
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-track-details:hover {
+      background: rgba(0, 210, 255, 0.1);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* Schedule / Timeline Section */
+    .schedule-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
+    }
+
+    .timeline-container {
+      display: none;
+      max-width: 850px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline-container.active {
+      display: block;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10px;
+      height: 100%;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-progress {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 2px;
+      background: linear-gradient(180deg, #00d2ff, #6366f1);
+      height: 0%;
+      transition: height 0.2s ease;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .timeline-row {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-node {
+      position: absolute;
+      top: 1.25rem;
+      left: -2px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content-card:hover {
+      border-color: rgba(0, 210, 255, 0.4);
+      transform: translateX(5px);
+    }
+
+    .timeline-time {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-info h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Committee Section */
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .committee-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .committee-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 210, 255, 0.12);
+    }
+
+    .committee-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .committee-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    .committee-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #0d121f;
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      max-width: 580px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 210, 255, 0.15);
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .modal-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-header p {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #05070a;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4.5rem 0 2.5rem 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo-img {
+      object-fit: contain;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+    }
+
+    .footer-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    .footer-queries-card {
+      background: rgba(14, 20, 34, 0.6);
+      border: 1px solid rgba(0, 210, 255, 0.2);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+
+    .footer-queries-card h4 {
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-row .name {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .contact-row a.phone {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .contact-row a.phone:hover {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .btn-top {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-top:hover {
+      background: var(--accent);
+      color: #07090e;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Interactive Elements & Effects */
+    #matrixCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.65;
+    }
+
+    #global-scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00d2ff, #6366f1, #a855f7);
+      width: 0%;
+      z-index: 1001;
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    }
+
+    .cyber-cursor {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s ease, height 0.15s ease, background 0.15s ease;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .cyber-cursor-follower {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0, 210, 255, 0.5);
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cyber-cursor.hover {
+      width: 14px;
+      height: 14px;
+      background: #ffffff;
+      box-shadow: 0 0 15px #ffffff;
+    }
+
+    .cyber-cursor-follower.hover {
+      width: 48px;
+      height: 48px;
+      border-color: var(--accent);
+      background: rgba(0, 210, 255, 0.08);
+    }
+
+    .mouse-glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .overview-split,
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .tracks-grid,
+      .pillars-grid,
+      .committee-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links,
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tracks-grid,
+      .pillars-grid,
+      .committee-grid,
+      .overview-stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .container {
+        padding: 0 1.25rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="matrixCanvas"></canvas>
+  <div id="global-scroll-progress"></div>
+
+  <!-- Cyber Cursor -->
+  <div class="cyber-cursor"></div>
+  <div class="cyber-cursor-follower"></div>
+  <div class="mouse-glow"></div>
+
+  <!-- Ambient Glow Effects -->
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
+
+  <!-- Header Navigation -->
+  <header id="navbar">
+    <nav>
+      <div class="nav-brand-group">
+        <div class="nav-logo-wrapper">
+          <img src="PICS/KPRIET.png" alt="KPRIET Logo" class="nav-logo-img logo-kpriet" />
+          <img src="PICS/ACM_LOGO.jpeg" alt="ACM Student Chapter Logo" class="nav-logo-img logo-acm" />
+        </div>
+
+        <a href="#" class="nav-brand-text">
+          <div class="brand-dot"></div>
+          HACKNEXUS<span class="accent">'27</span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about">// About</a></li>
+        <li><a href="#tracks">// Tracks</a></li>
+        <li><a href="#schedule">// Schedule</a></li>
+        <li><a href="#committee">// Committee</a></li>
+        <li><a href="#contact">// Contact</a></li>
+      </ul>
+
+      <button class="btn-register desktop-only" onclick="openRegModal()">
+        <span>Register Now</span>
+      </button>
+
+      <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">☰</button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="toggleMobileMenu()">// About</a>
+      <a href="#tracks" onclick="toggleMobileMenu()">// Tracks</a>
+      <a href="#schedule" onclick="toggleMobileMenu()">// Schedule</a>
+      <a href="#committee" onclick="toggleMobileMenu()">// Committee</a>
+      <a href="#contact" onclick="toggleMobileMenu()">// Contact</a>
+      <button class="btn-register" onclick="toggleMobileMenu(); openRegModal();" style="width: 100%; text-align: center; margin-top: 0.5rem;">
+        Register Now
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="bg-grid"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Left -->
+        <div>
+          <div class="hero-tag">
+            <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
+            National Level 24-Hour Hackathon
+          </div>
+
+          <div class="hero-organizer-tag">
+            Department of AI & Data Science & ACM Student Chapter Present
+          </div>
+
+          <h1 class="hero-title">
+            HACKNEXUS
+            <span class="stroke glitch-hover" data-text="'27">'27</span>
+          </h1>
+
+          <div class="hero-motto-badge">
+            💡 Ideas &bull; Innovation &bull; Impact
+          </div>
+
+          <p class="hero-sub" id="typewriter">
+            Organized by <strong>Department of AI & Data Science</strong>, in association with <strong>ACM Student Chapter</strong>.<br>
+            KPR Institute of Engineering and Technology, Coimbatore.
+          </p>
+
+          <!-- Key Meta Badges -->
+          <div class="hero-badges-grid">
+            <div class="meta-badge highlight">
+              💰 Prize Pool: ₹25,000
+            </div>
+            <div class="meta-badge highlight">
+              🎯 Internship Offer for Best Work!
+            </div>
+            <div class="meta-badge">
+              📅 5 & 6 February 2027
+            </div>
+            <div class="meta-badge">
+              📍 KPRIET, Coimbatore
+            </div>
+            <div class="meta-badge">
+              👥 Teams of up to 4
+            </div>
+            <div class="meta-badge">
+              💸 Fee: ₹500 / person
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-register" onclick="openRegModal()">
+              [ Register Now ]
+            </button>
+            <a href="#tracks" class="btn-secondary">
+              Explore Tracks ↓
+            </a>
+            <a href="https://forms.gle/f1JJPxTwpuX9CSwk6" target="_blank" class="btn-secondary" style="border-color: rgba(0, 210, 255, 0.4); color: var(--accent);">
+              Google Form ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Live Countdown Timer -->
+        <div class="timer-card">
+          <div class="timer-header">
+            <span>Hackathon Countdown</span>
+            <span class="timer-status">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; box-shadow: 0 0 6px var(--accent);"></span>
+              FEB 5, 2027
+            </span>
+          </div>
+
+          <div class="countdown-grid">
+            <div class="time-box">
+              <div class="time-val" id="days">00</div>
+              <div class="time-lbl">Days</div>
+            </div>
+            <div class="time-box">
+              <div class="time-val" id="hours">00</div>
+              <div class="time-lbl">Hours</div>
+            </div>
+            <div class="time-box">
+              <div class="time-val" id="mins">00</div>
+              <div class="time-lbl">Mins</div>
+            </div>
+            <div class="time-box">
+              <div class="time-val" id="secs">00</div>
+              <div class="time-lbl">Secs</div>
+            </div>
+          </div>
+
+          <div class="timer-perks-box">
+            <div class="timer-perk-item">
+              🏆 <span>Mentorship from Industry Experts</span>
+            </div>
+            <div class="timer-perk-item">
+              🌐 <span>Elite Networking & Collaboration</span>
+            </div>
+            <div class="timer-perk-item">
+              📜 <span>Official Certificates for All Participants</span>
+            </div>
+            <div class="timer-perk-item">
+              🚀 <span>Top Teams Receive Direct Internship Offers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-down">
+        Scroll Down ↓
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Ticker Band -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="marquee-item">
+        <span class="highlight">HACKNEXUS '27</span> <span class="marquee-dot"></span>
+        NATIONAL LEVEL 24-HOUR HACKATHON <span class="marquee-dot"></span>
+        <span class="highlight">₹25,000 PRIZE POOL</span> <span class="marquee-dot"></span>
+        <span class="highlight-purple">INTERNSHIP OFFER FOR BEST WORK</span> <span class="marquee-dot"></span>
+        KPRIET COIMBATORE <span class="marquee-dot"></span>
+        ACM STUDENT CHAPTER <span class="marquee-dot"></span>
+        DEPT OF AI & DATA SCIENCE <span class="marquee-dot"></span>
+        5 & 6 FEBRUARY 2027 <span class="marquee-dot"></span>
+        TEAMS UP TO 4 <span class="marquee-dot"></span>
+        REGISTRATION OPEN NOW <span class="marquee-dot"></span>
+      </div>
+      <div class="marquee-item">
+        <span class="highlight">HACKNEXUS '27</span> <span class="marquee-dot"></span>
+        NATIONAL LEVEL 24-HOUR HACKATHON <span class="marquee-dot"></span>
+        <span class="highlight">₹25,000 PRIZE POOL</span> <span class="marquee-dot"></span>
+        <span class="highlight-purple">INTERNSHIP OFFER FOR BEST WORK</span> <span class="marquee-dot"></span>
+        KPRIET COIMBATORE <span class="marquee-dot"></span>
+        ACM STUDENT CHAPTER <span class="marquee-dot"></span>
+        DEPT OF AI & DATA SCIENCE <span class="marquee-dot"></span>
+        5 & 6 FEBRUARY 2027 <span class="marquee-dot"></span>
+        TEAMS UP TO 4 <span class="marquee-dot"></span>
+        REGISTRATION OPEN NOW <span class="marquee-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="overview-split">
+        <div class="overview-content reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span> 01 // OVERVIEW
+          </div>
+          <h2 class="section-title">
+            IDEAS &bull; INNOVATION <br /><span class="outline">IMPACT</span>
+          </h2>
+          <p class="section-subtitle">
+            <strong>HackNexus’27</strong> is a premier National Level 24-Hour Hackathon hosted by the 
+            <strong>Department of AI & Data Science</strong> at <strong>KPR Institute of Engineering and Technology, Coimbatore</strong>, 
+            in association with the <strong>ACM Student Chapter</strong>. 
+            Over two action-packed days, student visionaries, programmers, and designers collaborate to engineer working prototypes 
+            addressing critical real-world challenges.
+          </p>
+        </div>
+
+        <div class="overview-stats-grid">
+          <div class="stat-card tilt-card reveal">
+            <div class="stat-num counter" data-target="24" data-suffix="H">0</div>
+            <div class="stat-desc">Non-stop Innovation</div>
+          </div>
+          <div class="stat-card tilt-card reveal">
+            <div class="stat-num counter" data-target="6" data-suffix="" data-prefix="0">0</div>
+            <div class="stat-desc">Cutting-Edge Tracks</div>
+          </div>
+          <div class="stat-card tilt-card reveal">
+            <div class="stat-num counter" data-target="25" data-suffix="K" data-prefix="₹">0</div>
+            <div class="stat-desc">Cash Prize Pool (INR)</div>
+          </div>
+          <div class="stat-card tilt-card reveal">
+            <div class="stat-num counter" data-target="4" data-suffix="" data-prefix="">0</div>
+            <div class="stat-desc">Max Members / Team</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Value Pillars Grid -->
+      <div class="pillars-grid">
+        <div class="pillar-card tilt-card reveal">
+          <div class="pillar-icon">🎯</div>
+          <h3 class="pillar-title">Internship Offers</h3>
+          <p class="pillar-desc">The best work gets an exclusive internship offer! Launch your tech career with direct industry exposure and impactful engineering projects.</p>
+        </div>
+
+        <div class="pillar-card tilt-card reveal">
+          <div class="pillar-icon">🧠</div>
+          <h3 class="pillar-title">Expert Mentorship</h3>
+          <p class="pillar-desc">Gain direct access to seasoned industry leaders, technology architects, and research mentors throughout your 24-hour sprint.</p>
+        </div>
+
+        <div class="pillar-card tilt-card reveal">
+          <div class="pillar-icon">📜</div>
+          <h3 class="pillar-title">Certificates & Perks</h3>
+          <p class="pillar-desc">Official participation and excellence certificates for all participants, premium hack kits, meal passes, and networking sessions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks Section -->
+  <section id="tracks" style="background: rgba(10, 14, 25, 0.5);">
+    <div class="container">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span> 02 // CHALLENGE TRACKS
+      </div>
+      <h2 class="section-title reveal">
+        CHOOSE YOUR <span class="outline">DOMAIN</span>
+      </h2>
+      <p class="section-subtitle">
+        Select one of six forward-looking domains engineered to drive high-impact transformation across industries.
+      </p>
+
+      <!-- Important Event Update Notice -->
+      <div class="problem-statement-update reveal tilt-card"
+        style="background: rgba(14, 20, 35, 0.7); border: 1px solid rgba(0, 210, 255, 0.3); padding: 2rem; margin: 0 0 3rem 0; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05); text-align: center; position: relative; overflow: hidden;">
+        
+        <div style="display: inline-block; padding: 0.35rem 1rem; border-radius: var(--radius-full); background: rgba(0, 210, 255, 0.15); border: 1px solid rgba(0, 210, 255, 0.4); font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); margin-bottom: 1rem; font-weight: 700;">
+          🚀 REGISTRATION IS NOW OPEN!
+        </div>
+
+        <h3 style="color: #ffffff; font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+          HackNexus’27 Problem Statements & Participation Guidelines
+        </h3>
+
+        <p style="font-family: var(--font-mono); font-size: 1rem; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.7; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Teams of up to <strong style="color: var(--accent);">4 members</strong> can register now. Registration fee is <strong style="color: var(--accent);">Rs. 500 per person</strong>.<br>
+          Problem statements across all 6 tracks will be officially announced and briefed at the venue during hack commencement to ensure fair competition.
+        </p>
+
+        <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 1.25rem; margin-bottom: 1.75rem; text-align: left; border-radius: var(--radius-sm);">
+          <h4 style="color: #ef4444; font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 0.4rem;">
+            ⚠️ Fair Play & Originality Rule:
+          </h4>
+          <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-main); margin: 0; line-height: 1.6;">
+            Pre-built solutions and previously deployed projects are strictly prohibited. All repositories and prototype codes must be initialized and committed during the 24-hour hackathon window. Violations result in immediate disqualification.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+          <button class="btn-register" onclick="openRegModal()">
+            Register Your Team Here →
+          </button>
+          <a href="https://forms.gle/f1JJPxTwpuX9CSwk6" target="_blank" class="btn-secondary" style="border-color: var(--accent); color: var(--accent);">
+            🔗 Open Google Form
+          </a>
+        </div>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-muted);">
+          Student Coordinators: Sri Vignesh R (<span style="color: var(--accent); font-weight: 700;">9360538154</span>) &bull; Sredivit KT (<span style="color: var(--accent); font-weight: 700;">9363717009</span>)
+        </div>
+      </div>
+
+      <div class="tracks-grid">
+        <!-- Track 1: AI & ML -->
+        <div class="track-card tilt-card reveal">
+          <div>
+            <div class="track-header">
+              <span class="track-num">[TRACK 01]</span>
+              <div class="track-icon-ph">🧠</div>
+            </div>
+            <h3>AI & ML</h3>
+            <p>Artificial Intelligence & Machine Learning: Large language models, deep learning architectures, generative intelligence, predictive models, and autonomous cognitive agents.</p>
+          </div>
+          <button class="btn-track-details"
+            onclick="openTrackModal('Track 01: AI & ML', 'Explore cutting-edge Artificial Intelligence & Machine Learning. Projects may focus on Generative AI, Retrieval-Augmented Generation (RAG) pipelines, multimodal systems, natural language processing, deep neural networks, computer vision, time-series forecasting, and intelligent autonomous agents engineered for real-world utility.')">
+            View Details & Scope →
+          </button>
+        </div>
+
+        <!-- Track 2: Cybersecurity -->
+        <div class="track-card tilt-card reveal">
+          <div>
+            <div class="track-header">
+              <span class="track-num">[TRACK 02]</span>
+              <div class="track-icon-ph">🛡️</div>
+            </div>
+            <h3>Cybersecurity</h3>
+            <p>Next-gen threat intelligence, zero-trust network defenses, automated vulnerability scanners, cryptography, and proactive malware hunting systems.</p>
+          </div>
+          <button class="btn-track-details"
+            onclick="openTrackModal('Track 02: Cybersecurity', 'Build innovative cyber defense frameworks. Focus on automated threat detection, security orchestration, behavioral anomaly analysis, API security, decentralized identity protocols, zero-trust cloud architectures, forensic analysis tooling, and proactive defensive cybersecurity.')">
+            View Details & Scope →
+          </button>
+        </div>
+
+        <!-- Track 3: Industry 4.0 & 5.0 -->
+        <div class="track-card tilt-card reveal">
+          <div>
+            <div class="track-header">
+              <span class="track-num">[TRACK 03]</span>
+              <div class="track-icon-ph">⚙️</div>
+            </div>
+            <h3>Industry 4.0 & 5.0</h3>
+            <p>Smart factories, Industrial IoT (IIoT), digital twins, automated supply chains, predictive equipment maintenance, and human-machine collaborative workflows.</p>
+          </div>
+          <button class="btn-track-details"
+            onclick="openTrackModal('Track 03: Industry 4.0 & 5.0', 'Revolutionize manufacturing and industrial workflows. Focus on cyber-physical integration, Industrial IoT telemetry, digital twin simulations, automated factory operations, predictive machinery maintenance, green manufacturing pipelines, and human-centric Industry 5.0 automation.')">
+            View Details & Scope →
+          </button>
+        </div>
+
+        <!-- Track 4: MedTech -->
+        <div class="track-card tilt-card reveal">
+          <div>
+            <div class="track-header">
+              <span class="track-num">[TRACK 04]</span>
+              <div class="track-icon-ph">🩺</div>
+            </div>
+            <h3>MedTech</h3>
+            <p>Intelligent healthcare diagnostics, continuous patient vitals monitoring, wearable sensors, assistive biomedical tech, and privacy-preserving clinical decision support.</p>
+          </div>
+          <button class="btn-track-details"
+            onclick="openTrackModal('Track 04: MedTech', 'Innovate for the future of healthcare. Build diagnostic screening models, wearable biosensor telemetry, smart patient monitoring suites, assistive tech for accessibility, telemedicine platforms, and privacy-first clinical analytics that empower healthcare professionals.')">
+            View Details & Scope →
+          </button>
+        </div>
+
+        <!-- Track 5: Robotics & Automation -->
+        <div class="track-card tilt-card reveal">
+          <div>
+            <div class="track-header">
+              <span class="track-num">[TRACK 05]</span>
+              <div class="track-icon-ph">🤖</div>
+            </div>
+            <h3>Robotics & Automation</h3>
+            <p>Autonomous mobile robotics, drone applications, Robotic Process Automation (RPA), intelligent sensor fusion, and smart embedded motion controllers.</p>
+          </div>
+          <button class="btn-track-details"
+            onclick="openTrackModal('Track 05: Robotics & Automation', 'Design hardware and software intelligence for robotics. Develop ROS-powered autonomous navigation, UAV/drone surveillance pipelines, industrial robotic arms, automated RPA workflow engines, computer vision perception for machines, and smart embedded microcontrollers.')">
+            View Details & Scope →
+          </button>
+        </div>
+
+        <!-- Track 6: Open Innovation -->
+        <div class="track-card tilt-card reveal">
+          <div>
+            <div class="track-header">
+              <span class="track-num">[TRACK 06]</span>
+              <div class="track-icon-ph">💡</div>
+            </div>
+            <h3>Open Innovation</h3>
+            <p>Disruptive cross-disciplinary inventions solving high-impact problems across FinTech, CleanTech, AgriTech, GovTech, EduTech, and hybrid hardware-software domains.</p>
+          </div>
+          <button class="btn-track-details"
+            onclick="openTrackModal('Track 06: Open Innovation', 'Unleash limitless creativity. If your groundbreaking project transcends standard categories, build it in Open Innovation! Tackle pressing challenges in agriculture, sustainable energy, financial inclusion, public governance, smart cities, and societal transformation.')">
+            View Details & Scope →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule">
+    <div class="container">
+      <div class="eyebrow" style="justify-content: center; display: flex;">
+        <span class="eyebrow-line"></span> 03 // EVENT TIMELINE
+      </div>
+      <h2 class="section-title reveal" style="text-align: center;">
+        24-HOUR HACKATHON <span class="outline">SCHEDULE</span>
+      </h2>
+      <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">
+        Two days of intense building, continuous mentorship, review checkpoints, and high-stakes jury pitching.
+      </p>
+
+      <div class="schedule-tabs">
+        <button class="tab-btn active" onclick="switchSchedule('day1', this)">
+          Day 1 (Friday, 5 Feb 2027)
+        </button>
+        <button class="tab-btn" onclick="switchSchedule('day2', this)">
+          Day 2 (Saturday, 6 Feb 2027)
+        </button>
+      </div>
+
+      <!-- Day 1 Schedule -->
+      <div id="day1" class="timeline-container active">
+        <div class="timeline-progress" id="progress-day1"></div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">08:30 AM - 09:30 AM</div>
+            <div class="timeline-info">
+              <h4>Participant Registration & Hack Desk Setup</h4>
+              <p>Team check-in, hack badge & kit distribution, Wi-Fi onboarding, and workstation allocation at KPRIET.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">09:30 AM - 10:15 AM</div>
+            <div class="timeline-info">
+              <h4>Inaugural Ceremony & Keynote Address</h4>
+              <p>Welcome address by dignitaries from the Department of AI & Data Science and ACM Student Chapter, accompanied by an inspiring industry keynote.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">10:15 AM - 10:30 AM</div>
+            <div class="timeline-info">
+              <h4>Problem Statement Briefing & Hack Kickoff</h4>
+              <p>Official release of track parameters, evaluation rubric, and start of the 24-hour countdown clock.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">10:30 AM - 01:00 PM</div>
+            <div class="timeline-info">
+              <h4>Sprint 1: Ideation & Architectural Prototyping</h4>
+              <p>Teams brainstorm problem mapping, wireframing, tech stack finalization, and initial repository scaffolding.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">01:00 PM - 02:00 PM</div>
+            <div class="timeline-info">
+              <h4>Buffet Lunch & Peer Networking</h4>
+              <p>Buffet lunch break and networking opportunity with fellow innovators and mentors.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">02:00 PM - 04:30 PM</div>
+            <div class="timeline-info">
+              <h4>Sprint 2: Core Development Phase</h4>
+              <p>Building core module logic, training predictive/AI models, writing backend services, and designing front-end interfaces.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">04:30 PM - 05:30 PM</div>
+            <div class="timeline-info">
+              <h4>Mentorship Checkpoint 1: Architecture Review</h4>
+              <p>Industry experts and faculty mentors visit team bays to review system designs and offer actionable optimization tips.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">05:30 PM - 07:30 PM</div>
+            <div class="timeline-info">
+              <h4>Sprint 3: System Integration & Testing</h4>
+              <p>Integrating APIs, connecting databases, executing hardware sensors, and refining UI/UX responsiveness.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">07:30 PM - 08:30 PM</div>
+            <div class="timeline-info">
+              <h4>Dinner Break & Energy Recharge</h4>
+              <p>Hot dinner served in the campus dining hall to re-energize developers for the night sprint.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">08:30 PM - 10:30 PM</div>
+            <div class="timeline-info">
+              <h4>Mentorship Checkpoint 2: Mid-Hack Evaluation</h4>
+              <p>Mid-hack jury assessment of working prototype components, feasibility, and alignment with the track objectives.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">10:30 PM - Overnight</div>
+            <div class="timeline-info">
+              <h4>Overnight Coding Sprint & Midnight Lounge</h4>
+              <p>Midnight refreshments, energizing coffee/tea, gaming mini-activities, and continuous mentor desk support throughout the night.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <button class="btn-secondary" style="border-color: var(--accent); color: var(--accent);"
+            onclick="document.getElementById('day1').classList.remove('active'); document.getElementById('day2').classList.add('active'); document.querySelectorAll('.tab-btn')[1].classList.add('active'); document.querySelectorAll('.tab-btn')[0].classList.remove('active'); window.location.href='#schedule';">
+            Continue to Day 2 (Saturday, 6 Feb) →
+          </button>
+        </div>
+      </div>
+
+      <!-- Day 2 Schedule -->
+      <div id="day2" class="timeline-container">
+        <div class="timeline-progress" id="progress-day2"></div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">06:30 AM - 07:30 AM</div>
+            <div class="timeline-info">
+              <h4>Morning Refreshments & Breakfast</h4>
+              <p>Morning breakfast and hot beverages at the campus cafeteria to gear up for finale pitches.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">07:30 AM - 08:30 AM</div>
+            <div class="timeline-info">
+              <h4>Final Polish & Code Freeze</h4>
+              <p>Final code commits, repository pushes, presentation slide creation, and demo rehearsals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">08:30 AM - 10:30 AM</div>
+            <div class="timeline-info">
+              <h4>Preliminary Pitching & Jury Evaluation</h4>
+              <p>Track-wise project pitches, live demo presentations, code inspections, and Q&A by distinguished judges.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">10:30 AM - 11:30 AM</div>
+            <div class="timeline-info">
+              <h4>Grand Finale: Top 10 Stage Demos</h4>
+              <p>Shortlisted finalists present live product demonstrations on the main auditorium stage before the grand jury panel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">11:30 AM - 12:30 PM</div>
+            <div class="timeline-info">
+              <h4>Valedictory Ceremony, Internship Awards & Prize Distribution</h4>
+              <p>Declaration of winners, awarding the ₹25,000 cash prizes, presentation of exclusive internship offers, and felicitation of participants.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-row reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-time">12:30 PM Onwards</div>
+            <div class="timeline-info">
+              <h4>Group Photo, Lunch & Departure</h4>
+              <p>Commemorative photo sessions, lunch, and official wrap-up of HackNexus’27.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <button class="btn-secondary"
+            onclick="document.getElementById('day2').classList.remove('active'); document.getElementById('day1').classList.add('active'); document.querySelectorAll('.tab-btn')[0].classList.add('active'); document.querySelectorAll('.tab-btn')[1].classList.remove('active'); window.location.href='#schedule';">
+            ← Back to Day 1 (Friday, 5 Feb)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committee Section -->
+  <section id="committee" style="background: rgba(10, 14, 25, 0.5);">
+    <div class="container">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span> 04 // LEADERSHIP & COMMITTEE
+      </div>
+      <h2 class="section-title reveal">
+        ORGANIZING <span class="outline">BODIES</span>
+      </h2>
+      <p class="section-subtitle">
+        Brought to you by the Department of AI & Data Science in proud association with the ACM Student Chapter, KPRIET.
+      </p>
+
+      <div class="committee-grid">
+        <!-- Organizer 1 -->
+        <div class="committee-card tilt-card reveal">
+          <span class="committee-role">// Host Department</span>
+          <h3>Dept of AI & Data Science</h3>
+          <p>KPR Institute of Engineering and Technology<br>Coimbatore, Tamil Nadu</p>
+        </div>
+
+        <!-- Organizer 2 -->
+        <div class="committee-card tilt-card reveal">
+          <span class="committee-role">// Professional Association</span>
+          <h3>ACM Student Chapter</h3>
+          <p>KPRIET Student Chapter<br>Advancing Computing as a Science & Profession</p>
+        </div>
+
+        <!-- Organizer 3 -->
+        <div class="committee-card tilt-card reveal">
+          <span class="committee-role">// Student Coordinators</span>
+          <h3>Event Organizing Team</h3>
+          <p>Sri Vignesh R &bull; Sredivit KT<br>HackNexus’27 Executive Committee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Modal -->
+  <div class="modal-overlay" id="regModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeRegModal()">✕</button>
+      <div class="modal-header">
+        <h3>Register for HackNexus’27</h3>
+        <p>National Level 24-Hour Hackathon &bull; KPRIET Coimbatore</p>
+      </div>
+
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.7;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+          <span style="color: var(--text-muted);">📅 Dates:</span>
+          <span style="color: #ffffff; font-weight: 600;">5 & 6 February 2027</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+          <span style="color: var(--text-muted);">👥 Team Size:</span>
+          <span style="color: #ffffff; font-weight: 600;">Up to 4 Members</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+          <span style="color: var(--text-muted);">💸 Registration Fee:</span>
+          <span style="color: var(--accent); font-weight: 700;">Rs. 500 per person</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">💰 Total Prize Pool:</span>
+          <span style="color: #38bdf8; font-weight: 700;">₹25,000 + Internships!</span>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+          Scan the QR Code to Register via Google Forms:
+        </p>
+        <img src="PICS/qr.png" alt="HackNexus27 Registration QR Code"
+          style="width: 220px; height: 220px; object-fit: contain; border: 2px solid var(--accent); border-radius: var(--radius-sm); margin-bottom: 1.25rem; background: #fff; padding: 6px; box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);" />
+        
+        <a href="https://forms.gle/f1JJPxTwpuX9CSwk6" target="_blank" class="btn-register"
+          style="display: block; width: 100%; text-align: center; text-decoration: none; padding: 0.85rem;">
+          Open Registration Form (forms.gle) →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Track Details Modal -->
+  <div class="modal-overlay" id="trackModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeTrackModal()">✕</button>
+      <div class="modal-header">
+        <h3 id="trackModalTitle">Track Title</h3>
+        <p id="trackModalSubtitle">Domain Overview & Guidelines</p>
+      </div>
+      <div style="font-family: var(--font-body); font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;"
+        id="trackModalBody">
+      </div>
+      <button class="btn-register" onclick="closeTrackModal(); openRegModal();" style="width: 100%; text-align: center;">
+        Register for this Track →
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logos">
+            <img src="PICS/KPRIET.png" alt="KPRIET Logo" class="footer-logo-img logo-kpriet" />
+            <img src="PICS/ACM_LOGO.jpeg" alt="ACM Student Chapter Logo" class="footer-logo-img logo-acm" />
+          </div>
+          <p class="footer-desc">
+            <strong>HackNexus’27</strong> is a National Level 24-Hour Hackathon organized by the 
+            <strong>Department of AI & Data Science</strong> in association with the 
+            <strong>ACM Student Chapter</strong> at KPR Institute of Engineering and Technology, Arasur, Coimbatore, Tamil Nadu.
+          </p>
+          <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #64748b;">#HackNexus27</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #64748b;">#KPRIET</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #64748b;">#AIandDS</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #64748b;">#ACMStudentChapter</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: #64748b;">#24HourHackathon</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-queries-card">
+            <h4>Student Helpline & Queries</h4>
+            <div class="contact-row">
+              <span class="name">Sri Vignesh R</span>
+              <a href="tel:9360538154" class="phone">📞 9360538154</a>
+            </div>
+            <div class="contact-row">
+              <span class="name">Sredivit KT</span>
+              <a href="tel:9363717009" class="phone">📞 9363717009</a>
+            </div>
+            <div style="margin-top: 1.25rem; text-align: center;">
+              <a href="https://forms.gle/f1JJPxTwpuX9CSwk6" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center; border-color: rgba(0, 210, 255, 0.4); color: var(--accent);">
+                Register: forms.gle/f1JJPxTwpuX9CSwk6 ↗
+              </a>
+            </div>
+          </div>
+          <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+            <a href="#hero" class="btn-top" title="Back to top">↑</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2027 HackNexus’27 | KPR Institute of Engineering and Technology. All Rights Reserved.</div>
+        <div>Ideas &bull; Innovation &bull; Impact</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header Scroll Effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Schedule Tabs Switcher
+    function switchSchedule(dayId, btn) {
+      document.querySelectorAll('.timeline-container').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(dayId).classList.add('active');
+      btn.classList.add('active');
+      updateTimelineProgress();
+    }
+
+    // Target Date: 5 February 2027, 08:30 AM IST
+    const targetDate = new Date('February 5, 2027 08:30:00').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('mins').innerText = String(mins).padStart(2, '0');
+        document.getElementById('secs').innerText = String(secs).padStart(2, '0');
+      } else {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('mins').innerText = '00';
+        document.getElementById('secs').innerText = '00';
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Registration Modal Functions
+    function openRegModal() {
+      document.getElementById('regModal').classList.add('active');
+    }
+    function closeRegModal() {
+      document.getElementById('regModal').classList.remove('active');
+    }
+
+    // Track Details Modal Functions
+    function openTrackModal(title, bodyText) {
+      document.getElementById('trackModalTitle').innerText = title;
+      document.getElementById('trackModalBody').innerText = bodyText;
+      document.getElementById('trackModal').classList.add('active');
+    }
+    function closeTrackModal() {
+      document.getElementById('trackModal').classList.remove('active');
+    }
+
+    // Close modal on click outside content
+    window.addEventListener('click', function(e) {
+      const regModal = document.getElementById('regModal');
+      const trackModal = document.getElementById('trackModal');
+      if (e.target === regModal) closeRegModal();
+      if (e.target === trackModal) closeTrackModal();
+    });
+
+    // --- High-Tech Nexus Mesh Animation (Professional Constellation Particle System) ---
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    let mouse = { x: null, y: null, radius: 150 };
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initParticles();
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.7;
+        this.vy = (Math.random() - 0.5) * 0.7;
+        this.radius = Math.random() * 2 + 1;
+        this.baseAlpha = Math.random() * 0.4 + 0.3;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx = -this.vx;
+        if (this.y < 0 || this.y > height) this.vy = -this.vy;
+
+        // Interaction with mouse
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            this.x -= (dx / dist) * force * 2;
+            this.y -= (dy / dist) * force * 2;
+          }
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 210, 255, ${this.baseAlpha})`;
+        ctx.fill();
+      }
+    }
+
+    let particles = [];
+    function initParticles() {
+      particles = [];
+      const particleCount = Math.min(Math.floor((width * height) / 14000), 100);
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+    initParticles();
+
+    function animateNexusMesh() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 130) {
+            const alpha = (1 - dist / 130) * 0.25;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Connect to mouse if nearby
+      if (mouse.x !== null && mouse.y !== null) {
+        for (let i = 0; i < particles.length; i++) {
+          const dx = mouse.x - particles[i].x;
+          const dy = mouse.y - particles[i].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const alpha = (1 - dist / mouse.radius) * 0.4;
+            ctx.beginPath();
+            ctx.moveTo(mouse.x, mouse.y);
+            ctx.lineTo(particles[i].x, particles[i].y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Update & Draw particles
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+
+      requestAnimationFrame(animateNexusMesh);
+    }
+    animateNexusMesh();
+
+    // Custom Cyber Cursor & Glow
+    const cursor = document.querySelector('.cyber-cursor');
+    const cursorFollower = document.querySelector('.cyber-cursor-follower');
+    const mouseGlow = document.querySelector('.mouse-glow');
+
+    document.addEventListener('mousemove', (e) => {
+      if (cursor && cursorFollower) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }
+      if (mouseGlow) {
+        mouseGlow.style.left = e.clientX + 'px';
+        mouseGlow.style.top = e.clientY + 'px';
+        mouseGlow.style.opacity = '1';
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      if (mouseGlow) mouseGlow.style.opacity = '0';
+      if (cursor) cursor.style.opacity = '0';
+      if (cursorFollower) cursorFollower.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      if (mouseGlow) mouseGlow.style.opacity = '1';
+      if (cursor) cursor.style.opacity = '1';
+      if (cursorFollower) cursorFollower.style.opacity = '1';
+    });
+
+    // Cursor hover states on interactive items
+    const interactables = document.querySelectorAll('a, button, input, select, textarea, .nav-brand-text, .track-card, .stat-card, .pillar-card');
+    interactables.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (cursor) cursor.classList.add('hover');
+        if (cursorFollower) cursorFollower.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        if (cursor) cursor.classList.remove('hover');
+        if (cursorFollower) cursorFollower.classList.remove('hover');
+      });
+    });
+
+    // Scroll Reveal Observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px"
+    });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Global Scroll Progress Bar
+    const globalProgress = document.getElementById('global-scroll-progress');
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (height > 0) {
+        globalProgress.style.width = (winScroll / height) * 100 + "%";
+      }
+    });
+
+    // Animated Number Counters
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          const suffix = counter.getAttribute('data-suffix') || '';
+          const prefix = counter.getAttribute('data-prefix') || '';
+          let count = 0;
+          const step = Math.max(1, Math.ceil(target / 40));
+
+          const updateCount = () => {
+            count += step;
+            if (count < target) {
+              counter.innerText = prefix + count + suffix;
+              setTimeout(updateCount, 25);
+            } else {
+              counter.innerText = prefix + target + suffix;
+            }
+          };
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.3 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    // 3D Card Tilt Effect
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        card.style.transition = 'none';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        card.style.transition = 'transform 0.4s ease';
+      });
+    });
+
+    // Timeline Scroll Progress
+    function updateTimelineProgress() {
+      const activeContainer = document.querySelector('.timeline-container.active');
+      if (!activeContainer) return;
+      const progressLine = activeContainer.querySelector('.timeline-progress');
+      if (!progressLine) return;
+      const rect = activeContainer.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      let progress = 0;
+      if (rect.top < windowHeight / 2) {
+        progress = (windowHeight / 2 - rect.top) / rect.height;
+      }
+      progress = Math.max(0, Math.min(1, progress));
+      progressLine.style.height = `${progress * 100}%`;
+
+      const nodes = activeContainer.querySelectorAll('.timeline-node');
+      nodes.forEach(node => {
+        const nodeRect = node.getBoundingClientRect();
+        if (nodeRect.top < windowHeight / 2) {
+          node.style.background = 'var(--accent)';
+          node.style.boxShadow = '0 0 12px var(--accent)';
+        } else {
+          node.style.background = 'var(--bg)';
+          node.style.boxShadow = 'none';
+        }
+      });
+    }
+    window.addEventListener('scroll', updateTimelineProgress);
+    setTimeout(updateTimelineProgress, 400);
+  </script>
+</body>
+
+</html>

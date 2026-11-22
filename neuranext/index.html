@@ -223,7 +223,6 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
       box-sizing: border-box;
-      overflow: hidden;
     }
 
     header.scrolled {
@@ -382,6 +381,10 @@
       align-items: center;
       justify-content: center;
       transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      user-select: none;
+      z-index: 101;
     }
 
     .mobile-toggle:hover,
@@ -396,25 +399,47 @@
       width: 22px;
       height: 22px;
       stroke: currentColor;
+      pointer-events: none;
+      transition: transform 0.25s ease;
+    }
+
+    .mobile-toggle.active svg {
+      transform: rotate(90deg);
     }
 
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 75px;
+      top: 72px;
       left: 0;
       width: 100%;
-      background: rgba(7, 9, 14, 0.96);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-      padding: 2rem;
+      max-width: 100vw;
+      background: rgba(7, 9, 14, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(0, 210, 255, 0.3);
+      padding: 1.5rem 1.5rem 2rem 1.5rem;
       flex-direction: column;
       gap: 1.25rem;
-      z-index: 99;
+      z-index: 999;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
     }
 
     .mobile-menu.active {
-      display: flex;
+      display: flex !important;
+      animation: mobileMenuSlide 0.25s ease-out forwards;
+    }
+
+    @keyframes mobileMenuSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .mobile-menu a {
@@ -1514,7 +1539,7 @@
       }
 
       .mobile-menu {
-        top: 65px;
+        top: 62px;
       }
 
       .hero {
@@ -1680,8 +1705,8 @@
       }
 
       .mobile-menu {
-        top: 56px;
-        padding: 1.25rem 1rem 2.5rem 1rem;
+        top: 52px;
+        padding: 1.25rem 1rem 2rem 1rem;
       }
 
       .hero {
@@ -1868,6 +1893,11 @@
         height: 18px;
       }
 
+      .mobile-menu {
+        top: 46px;
+        padding: 1rem 0.85rem 1.75rem 0.85rem;
+      }
+
       .hero-title {
         font-size: 1.95rem;
       }
@@ -1936,7 +1966,7 @@
         <span>Register Now</span>
       </button>
 
-      <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+      <button class="mobile-toggle" onclick="toggleMobileMenu(event)" aria-label="Toggle Navigation Menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -1944,19 +1974,19 @@
         </svg>
       </button>
     </nav>
-
-    <!-- Mobile Drawer -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#about" onclick="toggleMobileMenu()">// About</a>
-      <a href="#tracks" onclick="toggleMobileMenu()">// Tracks</a>
-      <a href="#schedule" onclick="toggleMobileMenu()">// Schedule</a>
-      <a href="#committee" onclick="toggleMobileMenu()">// Committee</a>
-      <a href="#contact" onclick="toggleMobileMenu()">// Contact</a>
-      <button class="btn-register" onclick="toggleMobileMenu(); openRegModal();" style="width: 100%; text-align: center; margin-top: 0.5rem;">
-        Register Now
-      </button>
-    </div>
   </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMobileMenu()">// About</a>
+    <a href="#tracks" onclick="toggleMobileMenu()">// Tracks</a>
+    <a href="#schedule" onclick="toggleMobileMenu()">// Schedule</a>
+    <a href="#committee" onclick="toggleMobileMenu()">// Committee</a>
+    <a href="#contact" onclick="toggleMobileMenu()">// Contact</a>
+    <button class="btn-register" onclick="toggleMobileMenu(); openRegModal();" style="width: 100%; text-align: center; margin-top: 0.5rem;">
+      Register Now
+    </button>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -1995,6 +2025,9 @@
             </div>
             <div class="meta-badge highlight">
               🎯 Internship Offer for Best Work!
+            </div>
+            <div class="meta-badge highlight" style="background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.45); color: #86efac; font-weight: 700;">
+              🍽️ 3 Meals Provided
             </div>
             <div class="meta-badge">
               📅 5 & 6 February 2027
@@ -2057,6 +2090,9 @@
               🏆 <span>Mentorship from Industry Experts</span>
             </div>
             <div class="timer-perk-item">
+              🍽️ <span>3 Wholesome Meals Provided</span>
+            </div>
+            <div class="timer-perk-item">
               🌐 <span>Elite Networking & Collaboration</span>
             </div>
             <div class="timer-perk-item">
@@ -2089,6 +2125,7 @@
         5 & 6 FEBRUARY 2027 <span class="marquee-dot"></span>
         TEAMS: 2 TO 4 MEMBERS (MIN 2, MAX 4) <span class="marquee-dot"></span>
         ARRIVE BEFORE 10 AM &bull; 10:30 AM INAUGURATION <span class="marquee-dot"></span>
+        <span class="highlight-green" style="color: #86efac; font-weight: 700;">🍽️ 3 MEALS PROVIDED</span> <span class="marquee-dot"></span>
       </div>
       <div class="marquee-item">
         <span class="highlight">HACKNEXUS '27</span> <span class="marquee-dot"></span>
@@ -2101,6 +2138,7 @@
         5 & 6 FEBRUARY 2027 <span class="marquee-dot"></span>
         TEAMS: 2 TO 4 MEMBERS (MIN 2, MAX 4) <span class="marquee-dot"></span>
         ARRIVE BEFORE 10 AM &bull; 10:30 AM INAUGURATION <span class="marquee-dot"></span>
+        <span class="highlight-green" style="color: #86efac; font-weight: 700;">🍽️ 3 MEALS PROVIDED</span> <span class="marquee-dot"></span>
       </div>
     </div>
   </div>
@@ -2187,9 +2225,9 @@
         </div>
 
         <div class="pillar-card tilt-card reveal">
-          <div class="pillar-icon">📜</div>
-          <h3 class="pillar-title">Certificates & Perks</h3>
-          <p class="pillar-desc">Official participation and excellence certificates for all participants, premium hack kits, meal passes, and networking sessions.</p>
+          <div class="pillar-icon">🍽️</div>
+          <h3 class="pillar-title">3 Meals & Amenities</h3>
+          <p class="pillar-desc">3 wholesome meals provided for all participants throughout the 24-hour hackathon, official participation & excellence certificates, Wi-Fi onboarding, and networking sessions.</p>
         </div>
       </div>
     </div>
@@ -2397,7 +2435,7 @@
         <div class="advisory-text">
           <h4>Essential Information for Hackers:</h4>
           <p>
-            Teams must consist of <strong>minimum 2 and maximum 4 members</strong>. Ensure all team members bring valid college ID cards, laptops, chargers, extension cords, and any required specialized hardware components. Mentorship, networking, and meals will be provided.
+            Teams must consist of <strong>minimum 2 and maximum 4 members</strong>. Ensure all team members bring valid college ID cards, laptops, chargers, extension cords, and any required specialized hardware components. <strong>3 wholesome meals are provided</strong> along with expert mentorship, high-speed Wi-Fi, and networking opportunities.
           </p>
         </div>
       </div>
@@ -2463,6 +2501,10 @@
         <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
           <span style="color: var(--text-muted);">💸 Registration Fee:</span>
           <span style="color: var(--accent); font-weight: 700;">Rs. 500 per person</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+          <span style="color: var(--text-muted);">🍽️ Hospitality & Meals:</span>
+          <span style="color: #4ade80; font-weight: 700;">3 Meals Provided</span>
         </div>
         <div style="display: flex; justify-content: space-between;">
           <span style="color: var(--text-muted);">💰 Cash Prizes:</span>
@@ -2567,9 +2609,18 @@
     });
 
     // Mobile Menu Toggle
-    function toggleMobileMenu() {
+    function toggleMobileMenu(event) {
+      if (event) {
+        event.stopPropagation();
+      }
       const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
+      const toggle = document.querySelector('.mobile-toggle');
+      if (!menu) return;
+      const isActive = menu.classList.toggle('active');
+      if (toggle) {
+        toggle.classList.toggle('active', isActive);
+        toggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      }
     }
 
     // Close mobile menu on click outside
@@ -2577,8 +2628,12 @@
       const menu = document.getElementById('mobileMenu');
       const toggle = document.querySelector('.mobile-toggle');
       if (menu && menu.classList.contains('active')) {
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        if (!menu.contains(e.target) && (!toggle || !toggle.contains(e.target))) {
           menu.classList.remove('active');
+          if (toggle) {
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
         }
       }
     });
@@ -2587,8 +2642,13 @@
     window.addEventListener('resize', function () {
       if (window.innerWidth > 992) {
         const menu = document.getElementById('mobileMenu');
+        const toggle = document.querySelector('.mobile-toggle');
         if (menu && menu.classList.contains('active')) {
           menu.classList.remove('active');
+          if (toggle) {
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
         }
       }
     });
